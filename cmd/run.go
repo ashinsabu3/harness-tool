@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/ashinsabu/harness-tool/utils"
 
 	"github.com/spf13/cobra"
 )
@@ -12,7 +13,11 @@ func newRunCmd() *cobra.Command {
 		Short: "",
 		Long:  ``,
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("run called")
+			fmt.Printf("harness-tool invoked with config file path: %s\n", configFilePath)
+			fmt.Println("Config parsed from YAML")
+			fmt.Println("---------------------------------------")
+			//spew.Dump(parsedConfig)
+			fmt.Println(utils.PrettyPrint(parsedConfig))
 		},
 	}
 

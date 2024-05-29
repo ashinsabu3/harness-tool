@@ -13,17 +13,20 @@ type HarnessMeta struct {
 	ProjectId string `yaml:"projectId"`
 }
 
-type InputSetItem struct {
+type InputsetVar struct {
 	Name  string `yaml:"name"`
 	Type  string `yaml:"type"`
 	Value string `yaml:"value"`
 }
 
-type InputSet map[string][]InputSetItem
+type LocalInputSet struct {
+	Id           string        `yaml:"id"`
+	InputsetVars []InputsetVar `yaml:"inputsetVars"`
+}
 
 type Pipeline struct {
-	Id        string   `yaml:"id"`
-	InputSets InputSet `yaml:"inputsets"`
+	Id             string          `yaml:"id"`
+	LocalInputSets []LocalInputSet `yaml:"local-inputsets"`
 }
 
 type HarnessConfig struct {

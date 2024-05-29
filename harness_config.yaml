@@ -1,0 +1,31 @@
+harness-meta:
+  apiKey: xxxx
+  accountId: xxxx
+  orgId: xxxx
+  projectId: xxxx
+harness-pipelines:
+  - id: api_automation_pipeline
+    local-inputsets:
+      - id: inp1
+        inputsetVars:
+          - name: agentId
+            type: String
+            value: ashinagent
+          - name: agentName
+            type: String
+            value: ashinagent
+          - name: priority
+            type: String
+            value: P0
+          - name: BASE_URI
+            type: String
+            value: https://a0a8-35-235-111-66.ngrok-free.app
+          - name: account_id
+            type: String
+            value: kmpySmUISimoRrJL6NL73w
+          - name: username
+            type: String
+            value: admin@harness.io
+      - inputset2:
+
+
