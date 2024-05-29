@@ -1,7 +1,10 @@
 package cmd
 
 import (
+	"fmt"
+	"github.com/ashinsabu/harness-tool/internal/clients"
 	"github.com/spf13/cobra"
+	"log"
 )
 
 type pipeline struct {
@@ -29,6 +32,12 @@ func newRunCmd() *cobra.Command {
 	return cmd
 }
 
-func (*pipeline) run(cmd *cobra.Command, args []string) {
+func (p *pipeline) run(cmd *cobra.Command, args []string) {
+	uuid, err := clients.ExecutePipeline(parsedConfig, p.pipelineId, p.localInputSetId)
+	if err != nil {
+		log.Fatalf("failed to execute pipeline: %v", err)
+	}
+
+	fmt.Printf("Pipeline executed successfully. Plan Execution UUID: %s\n", uuid)
 
 }

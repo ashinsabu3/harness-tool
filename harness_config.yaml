@@ -1,10 +1,10 @@
 harness-meta:
-  apiKey: xxxx
-  accountId: xxxx
-  orgId: xxxx
-  projectId: xxxx
+  apiKey: ""
+  accountId: vpCkHKsDSxK9_KYfjCTMKA
+  orgId: QE_Team
+  projectId: Quality_Assurence
 harness-pipelines:
-  - id: api_automation_pipeline
+  - id: GitOpsSnapshotSanity_Clone2
     local-inputsets:
       - id: inp1
         inputsetVars:
@@ -19,14 +19,16 @@ harness-pipelines:
             value: P0
           - name: BASE_URI
             type: String
-            value: https://a0a8-35-235-111-66.ngrok-free.app
+            value: https://5ded-2402-3a80-4288-9f4e-5c91-f826-84df-bdf7.ngrok-free.app
           - name: account_id
             type: String
             value: kmpySmUISimoRrJL6NL73w
           - name: username
             type: String
             value: admin@harness.io
-      - inputset2:
+          - name: password
+            type: String
+            value: 306bde90805d6a98417c0ae0bc9b7c5b
 
 harness-properties:
   ci:
