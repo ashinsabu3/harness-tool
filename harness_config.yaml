@@ -28,4 +28,10 @@ harness-pipelines:
             value: admin@harness.io
       - inputset2:
 
-
+harness-properties:
+  ci:
+    codebase:
+      build:
+        spec:
+          branch: ashin/hackweek
+        type: branch

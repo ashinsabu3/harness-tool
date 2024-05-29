@@ -30,8 +30,9 @@ type Pipeline struct {
 }
 
 type HarnessConfig struct {
-	HarnessMeta      HarnessMeta `yaml:"harness-meta"`
-	HarnessPipelines []Pipeline  `yaml:"harness-pipelines"`
+	HarnessMeta       HarnessMeta `yaml:"harness-meta"`
+	HarnessPipelines  []Pipeline  `yaml:"harness-pipelines"`
+	HarnessProperties interface{} `yaml:"harness-properties"`
 }
 
 func ParseConfig(filePath string) (*HarnessConfig, error) {

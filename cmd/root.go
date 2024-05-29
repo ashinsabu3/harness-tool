@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/ashinsabu/harness-tool/internal/config_parser"
+	"github.com/ashinsabu/harness-tool/utils"
 
 	"github.com/spf13/cobra"
 )
@@ -10,6 +11,7 @@ import (
 var (
 	configFilePath string
 	parsedConfig   *config_parser.HarnessConfig
+	verbose        bool
 )
 
 func newRootCmd(version string) *cobra.Command {
@@ -26,6 +28,15 @@ func newRootCmd(version string) *cobra.Command {
 			if err != nil {
 				return fmt.Errorf("failed to parse config file: %w", err)
 			}
+
+			if verbose {
+				fmt.Printf("harness-tool invoked with config file path: %s\n", configFilePath)
+				fmt.Println("---------------------------------------")
+				fmt.Println("Config parsed from YAML")
+				fmt.Println("---------------------------------------")
+				//spew.Dump(parsedConfig)
+				fmt.Println(utils.PrettyPrint(parsedConfig))
+			}
 			return nil
 		},
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -34,6 +45,7 @@ func newRootCmd(version string) *cobra.Command {
 	}
 
 	cmd.PersistentFlags().StringVarP(&configFilePath, "config", "c", "", "path to harness_config.yaml")
+	cmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "")
 
 	cmd.AddCommand(newVersionCmd(version)) // version subcommand
 	cmd.AddCommand(newExampleCmd())        // example subcommand
