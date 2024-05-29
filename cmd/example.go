@@ -25,25 +25,30 @@ func newExampleCmd() *cobra.Command {
 		RunE:         o.run,
 	}
 
-	cmd.Flags().BoolVarP(&o.one, "one", "m", o.one, "one")
-	cmd.Flags().BoolVarP(&o.two, "two", "a", o.two, "two")
+	cmd.Flags().BoolVarP(&o.one, "one", "o", o.one, "one")
+	cmd.Flags().BoolVarP(&o.two, "two", "t", o.two, "two")
 
 	return cmd
 }
 
 func (o *exampleOptions) run(cmd *cobra.Command, args []string) error {
 	if o.one {
-		_, err := fmt.Fprintf(cmd.OutOrStdout(), "hello world")
+		_, err := fmt.Fprintf(cmd.OutOrStdout(), "hello world\n")
 		if err != nil {
 			return err
 		}
 	}
 
 	if o.two {
-		_, err := fmt.Fprintf(cmd.OutOrStdout(), "hello world 2")
+		_, err := fmt.Fprintf(cmd.OutOrStdout(), "hello world 2\n")
 		if err != nil {
 			return err
 		}
+	}
+
+	_, err := fmt.Fprintf(cmd.OutOrStdout(), "harness-tool finished.")
+	if err != nil {
+		return err
 	}
 
 	return nil

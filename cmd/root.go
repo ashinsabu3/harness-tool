@@ -9,7 +9,7 @@ import (
 func newRootCmd(version string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "harness-tool",
-		Short: "harness-tool root command",
+		Short: "harness-tool cli tool",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return cmd.Help()
 		},
@@ -17,6 +17,7 @@ func newRootCmd(version string) *cobra.Command {
 
 	cmd.AddCommand(newVersionCmd(version)) // version subcommand
 	cmd.AddCommand(newExampleCmd())        // example subcommand
+	cmd.AddCommand(newRunCmd())
 
 	return cmd
 }
