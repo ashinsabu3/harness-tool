@@ -1,5 +1,5 @@
 harness-meta:
-  apiKey: ""
+  apiKey: xxxxx
   accountId: vpCkHKsDSxK9_KYfjCTMKA
   orgId: QE_Team
   projectId: Quality_Assurence
@@ -19,7 +19,7 @@ harness-pipelines:
             value: P0
           - name: BASE_URI
             type: String
-            value: https://5ded-2402-3a80-4288-9f4e-5c91-f826-84df-bdf7.ngrok-free.app
+            value: https://c0f4-2401-4900-8838-890b-8842-633a-3f48-8204.ngrok-free.app
           - name: account_id
             type: String
             value: kmpySmUISimoRrJL6NL73w

@@ -38,6 +38,7 @@ func (p *pipeline) run(cmd *cobra.Command, args []string) {
 		log.Fatalf("failed to execute pipeline: %v", err)
 	}
 
-	fmt.Printf("Pipeline executed successfully. Plan Execution UUID: %s\n", uuid)
+	fmt.Printf("Pipeline executed successfully. Plan Execution UUID: %s\nLink: https://app.harness.io/ng/account/%s/all/orgs/%s/projects/%s/pipelines/%s/executions/%s",
+		uuid, parsedConfig.HarnessMeta.AccountId, parsedConfig.HarnessMeta.OrgId, parsedConfig.HarnessMeta.ProjectId, p.pipelineId, uuid)
 
 }
